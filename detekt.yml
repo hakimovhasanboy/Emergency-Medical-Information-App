@@ -1,0 +1,78 @@
+# Build configuration
+build:
+  maxIssues: 10
+  weights:
+    complexity: 2
+    style: 1
+    maintainability: 1
+    potentialBugs: 2
+
+# Complexity rules
+complexity:
+  TooManyFunctions:
+    active: true
+    thresholdInClasses: 10
+    thresholdInEnums: 5
+    thresholdInInterfaces: 5
+    ignoreDeprecated: true
+    ignoreAnnotated: []
+
+# Potential bugs
+potential-bugs:
+  UnsafeCallOnNullableType:
+    active: true
+  CastNullableToNonNullableType:
+    active: true
+  PropertyUsedBeforeDeclaration:
+    active: true
+
+# Style rules
+style:
+  MagicNumber:
+    active: true
+    ignoreNumbers: [-1, 0, 1, 2]
+    ignoreHashCodeFunction: true
+  StringLiteralDuplication:
+    active: true
+    threshold: 3
+  WildcardImport:
+    active: true
+    excludeImports: ["java.util.*", "kotlinx.coroutines.*"]
+
+# Naming rules
+naming:
+  ClassNaming:
+    active: true
+    format: '[A-Z][a-zA-Z0-9]*'
+  FunctionNaming:
+    active: true
+    format: '[a-z][a-zA-Z0-9]*'
+  VariableNaming:
+    active: true
+    format: '[a-z][a-zA-Z0-9]*'
+
+# Formatting
+formatting:
+  active: true
+  maxLineLength: 120
+
+# Commenting rules
+comments:
+  CommentOverPrivateFunction:
+    active: true
+
+# Documentation
+documentation:
+  UndocumentedPublicClass:
+    active: true
+
+# Report configuration
+processors:
+  active: true
+  exclude:
+    - 'FunctionCountProcessor'
+    - 'PropertyCountProcessor'
+
+# Plugins
+plugins:
+  active: true
