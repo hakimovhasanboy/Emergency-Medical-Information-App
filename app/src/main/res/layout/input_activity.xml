@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D0B2D5"
+    android:background="#BBD39E"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
@@ -15,15 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/nameValueTextView"
+    <EditText
+        android:id="@+id/nameEditTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:ellipsize="end"
         android:gravity="end"
-        android:maxLines="1"
-        android:text="Hasanboy"
         android:textColor="@color/black"
         android:textSize="21dp"
         android:textStyle="bold"
@@ -41,9 +40,19 @@
     <TextView
         android:id="@+id/dateOfBirthValueTextView"
         style="@style/TitleValue"
+        android:paddingEnd="33dp"
         android:text="0000-00-00"
         app:layout_constraintBaseline_toBaselineOf="@id/birthDateTextView"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#BBF0BD"
+        android:src="@drawable/baseline_calendar_month_24"
+        app:layout_constraintBottom_toBottomOf="@id/birthDateTextView"
+        app:layout_constraintEnd_toEndOf="@id/dateOfBirthValueTextView"
+        app:layout_constraintTop_toTopOf="@id/birthDateTextView" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -59,12 +68,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/birthDateTextView" />
 
-    <TextView
-        android:id="@+id/bloodTypeValueTextView"
-        style="@style/TitleValue"
-        android:text="A"
-        app:layout_constraintBaseline_toBaselineOf="@id/bloodTypeTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <RadioGroup
+        android:id="@+id/bloodTypeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/bloodTypeTextView"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/bloodTypeTextView">
+
+        <RadioButton
+            android:id="@+id/bloodTypePlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rh+" />
+
+        <RadioButton
+            android:id="@+id/bloodTypeMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rh-" />
+
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/bloodTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/bloodTypeTextView"
+        app:layout_constraintEnd_toEndOf="@id/nameEditTextView"
+        app:layout_constraintStart_toEndOf="@id/bloodTypeRadioGroup"
+        app:layout_constraintTop_toTopOf="@id/bloodTypeTextView" />
+
+    <CheckBox
+        android:id="@+id/warningCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:text="WARNING SHOW"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/showNotesTextView"
+        app:layout_constraintEnd_toEndOf="@id/nameEditTextView"
+        app:layout_constraintTop_toTopOf="@id/showNotesTextView" />
+
 
     <TextView
         android:id="@+id/emergencyTextView"
@@ -73,21 +121,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bloodTypeTextView" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:src="@drawable/baseline_add_call_24"
-        app:layout_constraintBottom_toBottomOf="@id/emergencyTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/emergencyTextView"
-        app:layout_constraintVertical_bias="0.375" />
-
-    <TextView
-        android:id="@+id/emergencyValueTextView"
+    <EditText
+        android:id="@+id/emergencyContactEditText"
         style="@style/TitleValue"
-        android:gravity="start"
-        android:text="0000-0000-0000"
+        android:hint="0000-0000-0000"
+        android:inputType="phone"
         app:layout_constraintBaseline_toBaselineOf="@id/emergencyTextView"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -98,44 +136,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emergencyTextView" />
 
-    <TextView
-        android:id="@+id/showNotesValueTextView"
+    <EditText
+        android:id="@+id/warningEditText"
         style="@style/TitleValue"
-        android:text="Add notes"
-        app:layout_constraintBaseline_toBaselineOf="@id/showNotesTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:gravity="end|center_vertical"
+        android:text="Warning"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showNotesTextView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#C8BECA"
         android:clickable="true"
-        android:src="@drawable/baseline_create_24"
+        android:src="@drawable/baseline_archive_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:background="#C8BECA"
-        android:clickable="true"
-        android:src="@drawable/baseline_auto_delete_24"
-        app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
-        app:layout_constraintEnd_toEndOf="@id/floatingActionButton" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <androidx.constraintlayout.helper.widget.Layer
-        android:id="@+id/emergencyLayer"
+        android:id="@+id/birthdateLayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="emergencyValueTextView"
+        app:constraint_referenced_ids="dateOfBirthValueTextView"
         tools:ignore="MissingConstraints" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

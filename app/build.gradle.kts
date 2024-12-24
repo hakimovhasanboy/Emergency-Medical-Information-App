@@ -44,6 +44,8 @@ configurations {
 }
 
 dependencies {
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     "ktlint"("com.pinterest.ktlint:ktlint-cli:1.5.0")
     "detekt"("io.gitlab.arturbosch.detekt:detekt-cli:1.22.0-RC3")
 
