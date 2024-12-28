@@ -1,141 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D0B2D5"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/nameTextView"
-        style="@style/Title"
-        android:layout_marginTop="40dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/nameValueTextView"
+        android:id="@+id/equationTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:ellipsize="end"
+        android:layout_height="0dp"
         android:gravity="end"
-        android:maxLines="1"
-        android:text="Hasanboy"
-        android:textColor="@color/black"
-        android:textSize="21dp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@id/nameTextView"
+        android:textSize="30sp"
+        android:padding="16dp"
+        android:text="equation"
+        app:layout_constraintBottom_toTopOf="@id/resultTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/birthDateTextView"
-        style="@style/Title"
-        android:text="Birth date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView" />
-
-    <TextView
-        android:id="@+id/dateOfBirthValueTextView"
-        style="@style/TitleValue"
-        android:text="0000-00-00"
-        app:layout_constraintBaseline_toBaselineOf="@id/birthDateTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
+        android:id="@+id/resultTextView"
+        android:text="result"
+        android:layout_width="0dp"
+        android:gravity="end"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <TextView
-        android:id="@+id/bloodTypeTextView"
-        style="@style/Title"
-        android:text="Blood type"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/birthDateTextView" />
-
-    <TextView
-        android:id="@+id/bloodTypeValueTextView"
-        style="@style/TitleValue"
-        android:text="A"
-        app:layout_constraintBaseline_toBaselineOf="@id/bloodTypeTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/emergencyTextView"
-        style="@style/Title"
-        android:text="Emergency"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bloodTypeTextView" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:src="@drawable/baseline_add_call_24"
-        app:layout_constraintBottom_toBottomOf="@id/emergencyTextView"
+        app:layout_constraintBottom_toTopOf="@id/keyPadFlow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/emergencyTextView"
-        app:layout_constraintVertical_bias="0.375" />
-
-    <TextView
-        android:id="@+id/emergencyValueTextView"
-        style="@style/TitleValue"
-        android:gravity="start"
-        android:text="0000-0000-0000"
-        app:layout_constraintBaseline_toBaselineOf="@id/emergencyTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/showNotesTextView"
-        style="@style/Title"
-        android:text="Show notes"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emergencyTextView" />
+        android:textSize="36dp"
+        android:padding="16dp"/>
 
-    <TextView
-        android:id="@+id/showNotesValueTextView"
-        style="@style/TitleValue"
-        android:text="Add notes"
-        app:layout_constraintBaseline_toBaselineOf="@id/showNotesTextView"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#C8BECA"
-        android:clickable="true"
-        android:src="@drawable/baseline_create_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.90"
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/keyPadFlow"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintVertical_bias="1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:flow_maxElementsWrap="4"
+        app:flow_wrapMode="chain"
+        app:flow_horizontalGap="8dp"
+        app:constraint_referenced_ids="button1,button2,button3,buttonClear,button4,button5,button6,buttonPlus,button7,button8,button9, buttonMinus, button0,buttonEqual"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:background="#C8BECA"
-        android:clickable="true"
-        android:src="@drawable/baseline_auto_delete_24"
-        app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
-        app:layout_constraintEnd_toEndOf="@id/floatingActionButton" />
+    <Button
+        android:id="@+id/button1"
+        android:onClick="numberClicked"
+        android:text="1"
+        style="@style/numberKeypad"/>
 
-    <androidx.constraintlayout.helper.widget.Layer
-        android:id="@+id/emergencyLayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="emergencyValueTextView"
+    <Button
+        android:id="@+id/button2"
+        android:text="2"
+        android:onClick="numberClicked"
+        style="@style/numberKeypad"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button3"
+        android:onClick="numberClicked"
+        android:text="3"
+        style="@style/numberKeypad"/>
+
+    <Button
+        android:id="@+id/button4"
+
+        android:text="4"
+        android:onClick="numberClicked"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button5"
+        android:text="5"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button6"
+        android:text="6"
+        android:onClick="numberClicked"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button7"
+        android:onClick="numberClicked"
+        android:text="7"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints"/>
+
+    <Button
+        android:id="@+id/button8"
+        android:onClick="numberClicked"
+        android:text="8"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button9"
+        android:text="9"
+        android:onClick="numberClicked"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button0"
+        android:onClick="numberClicked"
+        android:text="0"
+        app:layout_constraintHorizontal_weight="1"
+        style="@style/numberKeypad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonEqual"
+        android:text="="
+        android:onClick="equalClicked"
+        app:layout_constraintHorizontal_weight="3"
+        style="@style/operatorKeyPad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:text="C"
+        android:onClick="clearClicked"
+        style="@style/operatorKeyPad"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:text="+"
+        android:onClick="operatorClicked"
+        style="@style/operatorKeyPad"
+        tools:ignore="MissingConstraints"/>
+
+    <Button
+        android:id="@+id/buttonMinus"
+        android:onClick="operatorClicked"
+        android:text="-"
+        style="@style/operatorKeyPad"
+        tools:ignore="MissingConstraints"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+    <!--&lt;!&ndash; Natija ko‘rinadigan matn maydoni &ndash;&gt;
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0"
+            android:textSize="32sp"
+            android:background="#EEEEEE"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp" />
+
+        &lt;!&ndash; Tugmalar uchun layout &ndash;&gt;
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="5"
+            android:columnCount="4"
+            android:layout_marginTop="16dp">
+
+            &lt;!&ndash; Tugmalar &ndash;&gt;
+            <Button android:id="@+id/button7" android:layout_width="0dp" android:layout_height="wrap_content" android:text="7" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button8" android:layout_width="0dp" android:layout_height="wrap_content" android:text="8" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button9" android:layout_width="0dp" android:layout_height="wrap_content" android:text="9" android:layout_columnWeight="1" />
+            <Button android:id="@+id/buttonDivide" android:layout_width="0dp" android:layout_height="wrap_content" android:text="/" android:layout_columnWeight="1" />
+
+            <Button android:id="@+id/button4" android:layout_width="0dp" android:layout_height="wrap_content" android:text="4" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button5" android:layout_width="0dp" android:layout_height="wrap_content" android:text="5" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button6" android:layout_width="0dp" android:layout_height="wrap_content" android:text="6" android:layout_columnWeight="1" />
+            <Button android:id="@+id/buttonMultiply" android:layout_width="0dp" android:layout_height="wrap_content" android:text="*" android:layout_columnWeight="1" />
+
+            <Button android:id="@+id/button1" android:layout_width="0dp" android:layout_height="wrap_content" android:text="1" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button2" android:layout_width="0dp" android:layout_height="wrap_content" android:text="2" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button3" android:layout_width="0dp" android:layout_height="wrap_content" android:text="3" android:layout_columnWeight="1" />
+            <Button android:id="@+id/buttonMinus" android:layout_width="0dp" android:layout_height="wrap_content" android:text="-" android:layout_columnWeight="1" />
+
+            <Button android:id="@+id/buttonClear" android:layout_width="0dp" android:layout_height="wrap_content" android:text="C" android:layout_columnWeight="1" />
+            <Button android:id="@+id/button0" android:layout_width="0dp" android:layout_height="wrap_content" android:text="0" android:layout_columnWeight="1" />
+            <Button android:id="@+id/buttonEquals" android:layout_width="0dp" android:layout_height="wrap_content" android:text="=" android:layout_columnWeight="1" />
+            <Button android:id="@+id/buttonPlus" android:layout_width="0dp" android:layout_height="wrap_content" android:text="+" android:layout_columnWeight="1" />
+        </GridLayout>-->

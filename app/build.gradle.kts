@@ -48,7 +48,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     "ktlint"("com.pinterest.ktlint:ktlint-cli:1.5.0")
     "detekt"("io.gitlab.arturbosch.detekt:detekt-cli:1.22.0-RC3")
-
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     testImplementation("junit:junit:4.13.2")
